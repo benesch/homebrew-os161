@@ -1,0 +1,63 @@
+class Os161Gcc < Formula
+  homepage "http://www.eecs.harvard.edu/~dholland/os161/"
+  url "http://www.eecs.harvard.edu/~dholland/os161/download/gcc-4.8.3+os161-2.1.tar.gz"
+  version "4.8.3+os161-2.1"
+  sha256 "070659d14ab6f905e9df89891b78f9e052c114e0c4d011c630b2f07788d0359e"
+
+  bottle do
+    root_url "http://dl.bintray.com/benesch/homebrew-os161"
+    sha256 "f95aa3570dac8f3cdb06b6be0687c15759af32c163e1a65c41eecaef9213a2be" => :yosemite
+  end
+
+  depends_on "os161-binutils"
+  depends_on "gmp"
+  depends_on "libmpc"
+  depends_on "mpfr"
+  depends_on "isl"
+  depends_on "cloog"
+
+  def install
+    args = [
+      "--prefix=#{prefix}",
+      "--libdir=#{lib}/gcc/#{version}",
+      "--enable-languages=c",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-isl=#{Formula["isl"].opt_prefix}",
+      "--with-cloog=#{Formula["cloog"].opt_prefix}",
+      "--with-system-zlib",
+      "--enable-checking=release",
+      "--enable-lto",
+      "--disable-werror",
+      "--disable-shared",
+      "--disable-threads",
+      "--disable-libmudflap",
+      "--disable-libssp",
+      "--disable-nls",
+      "--target=mips-harvard-os161",
+      "--with-as=#{Formula["os161-binutils"].bin}/mips-harvard-os161-as",
+      "--with-ld=#{Formula["os161-binutils"].bin}/mips-harvard-os161-ld",
+      "--with-pkgversion=Homebrew OS161 #{name} #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/benesch/homebrew-os161/issues",
+    ]
+
+    mkdir "build" do
+      unless MacOS::CLT.installed?
+        # For Xcode-only systems, we need to tell the sysroot path.
+        # "native-system-header's will be appended
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{MacOS.sdk_path}"
+      end
+
+      system "../configure", *args
+      system "make"
+      system "make", "install"
+    end
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run. TODO fix this.
+    info.rmtree
+  end
+end
