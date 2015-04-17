@@ -6,8 +6,9 @@ class Os161Gdb < Formula
   revision 1
 
   bottle do
+    revision 1
     root_url "http://dl.bintray.com/benesch/homebrew-os161"
-    sha256 "aaa3a37d2a99da2ebf171f108f4af964bf3d7c5fb95b2e57b96e5e9ad6443ba5" => :yosemite
+    sha256 "0e1c7e4eceaeeb8cdc2a090196782846d8dae32ac519156db6c9d1d00323a31b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
