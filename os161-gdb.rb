@@ -3,6 +3,7 @@ class Os161Gdb < Formula
   url "http://www.eecs.harvard.edu/~dholland/os161/download/gdb-7.8+os161-2.1.tar.gz"
   version "7.8+os161-2.1"
   sha256 "1c16e2d83b3bfe52e8133e3c3a7d1f083b2d010fe1c107a78ede6439b1b1fe61"
+  revision 1
 
   bottle do
     root_url "http://dl.bintray.com/benesch/homebrew-os161"
@@ -20,6 +21,7 @@ class Os161Gdb < Formula
       "--disable-debug",
       "--disable-dependency-tracking",
       "--with-python=/usr",
+      "--without-lzma",
       "--target=mips-harvard-os161",
     ]
 
