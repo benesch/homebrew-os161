@@ -5,8 +5,8 @@ cross-compiling toolchain on OS X.
 
 **Supported versions:**
 
-* System/161 2.0.2
-* OS/161 2.0
+* System/161 2.0.5
+* OS/161 2.0.2
   * Binutils 2.24+os161-2.1
   * GCC 4.8.3+os161-2.1
   * GDB 7.8+os161-2.1
@@ -19,6 +19,7 @@ sources][161-download].
 With [Homebrew] installed, run
 
 ```bash
+$ brew tap homebrew/versions
 $ brew tap benesch/os161
 $ brew install bmake sys161 os161-gcc os161-gdb
 ```
@@ -88,11 +89,11 @@ To set up stock OS/161 in a nutshell:
 
 ```bash
 # Obtain sources
-$ wget http://www.eecs.harvard.edu/%7Edholland/os161/download/os161-base-2.0.tar.gz
-$ tar xf os161-base-2.0.tar.gz
+$ wget http://os161.eecs.harvard.edu/download/os161-base-2.0.2.tar.gz
+$ tar xf os161-base-2.0.2.tar.gz
 
 # Build userland
-$ cd os161-base-2.0
+$ cd os161-base-2.0.2
 $ ./configure
 $ bmake
 $ bmake install
@@ -115,8 +116,8 @@ See the [OS/161 guides and resources] for next steps.
 
 
 [Homebrew]: http://brew.sh
-[System/161]: http://www.eecs.harvard.edu/~dholland/os161/#sys161
-[OS/161]: http://www.eecs.harvard.edu/~dholland/os161/
-[OS/161 guides and resources]: http://www.eecs.harvard.edu/~dholland/os161/resources/
-[161-download]: http://www.eecs.harvard.edu/~dholland/os161/download/
+[System/161]: http://os161.eecs.harvard.edu/#sys161
+[OS/161]: http://os161.eecs.harvard.edu/
+[OS/161 guides and resources]: http://os161.eecs.harvard.edu/resources/
+[161-download]: http://os161.eecs.harvard.edu/download/
 [custom tap]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/brew-tap.md

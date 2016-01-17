@@ -1,19 +1,20 @@
 class Os161Gcc < Formula
-  homepage "http://www.eecs.harvard.edu/~dholland/os161/"
-  url "http://www.eecs.harvard.edu/~dholland/os161/download/gcc-4.8.3+os161-2.1.tar.gz"
+  homepage "http://os161.eecs.harvard.edu/"
+  url "http://os161.eecs.harvard.edu/download/gcc-4.8.3+os161-2.1.tar.gz"
   version "4.8.3+os161-2.1"
   sha256 "070659d14ab6f905e9df89891b78f9e052c114e0c4d011c630b2f07788d0359e"
 
   bottle do
     root_url "http://dl.bintray.com/benesch/homebrew-os161"
     sha256 "f95aa3570dac8f3cdb06b6be0687c15759af32c163e1a65c41eecaef9213a2be" => :yosemite
+    sha256 "e9e5913ffe217c410dc20a57e4835cbb1c004b0adf411146a1fac23b6bb3e8ad" => :el_capitan
   end
 
   depends_on "os161-binutils"
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "isl"
+  depends_on "isl012"
   depends_on "cloog"
 
   def install
@@ -25,7 +26,7 @@ class Os161Gcc < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl"].opt_prefix}",
+      "--with-isl=#{Formula["isl012"].opt_prefix}",
       "--with-cloog=#{Formula["cloog"].opt_prefix}",
       "--with-system-zlib",
       "--enable-checking=release",
