@@ -10,7 +10,7 @@ class Sys161 < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "mipseb"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "mipseb"
     system "make"
     system "make", "install"
   end
