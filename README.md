@@ -5,7 +5,7 @@ cross-compiling toolchain on OS X.
 
 **Supported versions:**
 
-* System/161 2.0.5
+* System/161 2.0.6
 * OS/161 2.0.2
   * Binutils 2.24+os161-2.1
   * GCC 4.8.3+os161-2.1
