@@ -6,7 +6,6 @@ class Os161Gcc < Formula
 
   bottle do
     root_url "http://dl.bintray.com/benesch/homebrew-os161"
-    sha256 "f95aa3570dac8f3cdb06b6be0687c15759af32c163e1a65c41eecaef9213a2be" => :yosemite
     sha256 "e9e5913ffe217c410dc20a57e4835cbb1c004b0adf411146a1fac23b6bb3e8ad" => :el_capitan
   end
 
