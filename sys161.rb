@@ -1,12 +1,12 @@
 class Sys161 < Formula
   homepage "http://os161.eecs.harvard.edu/#sys161"
-  url "http://os161.eecs.harvard.edu/download/sys161-2.0.6.tar.gz"
-  sha256 "c791f7d4d08597738bd0b1903124fa69b633b17903a18645a20e4ae5005d194c"
+  url "http://os161.eecs.harvard.edu/download/sys161-2.0.7.tar.gz"
+  sha256 "fdec52c0d92f46b96bd67a07f47e949c933d4026a8ab9599e35125de324c45b1"
 
   bottle do
     root_url "http://dl.bintray.com/benesch/homebrew-os161"
     cellar :any_skip_relocation
-    sha256 "0fa2388d6fb92962a9799f53e7882e6fafcb08c3f2c43d0b41995c866975d659" => :el_capitan
+    sha256 "c62b1147d19d662e63d0a598ec9f70a530240c4f5f12697ce51ebe2724cdd9dc" => :el_capitan
   end
 
   def install
