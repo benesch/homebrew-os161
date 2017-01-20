@@ -31,20 +31,14 @@ class Os161Gdb < Formula
     system "make"
     system "make", "install"
 
+    bin.install_symlink bin/"mips-harvard-os161-gdb" => "os161-gdb"
+
     # Remove conflicting items with binutils and stock GDB.
     rm_rf include
     rm_rf lib
     rm_rf share/"info"
     rm_rf share/"locale"
     rm_rf share/"man"
-  end
-
-  def caveats; <<-EOS.undent
-    gdb was installed as mips-harvard-os161-gdb; you may wish to set a
-    shorter shell alias:
-
-      echo alias os161-gdb=mips-harvard-os161-gdb >> ~/.bash_profile
-    EOS
   end
 end
 __END__
