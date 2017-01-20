@@ -19,7 +19,6 @@ sources][161-download].
 With [Homebrew] installed, run
 
 ```bash
-$ brew tap homebrew/versions
 $ brew tap benesch/os161
 $ brew install bmake sys161 os161-gcc os161-gdb
 ```
