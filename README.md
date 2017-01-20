@@ -20,7 +20,7 @@ With [Homebrew] installed, run
 
 ```bash
 $ brew tap benesch/os161
-$ brew install bmake sys161 os161-gcc os161-gdb
+$ brew install os161-toolchain
 ```
 
 then follow the standard OS/161 spinup guide.

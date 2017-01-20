@@ -19,5 +19,7 @@ before_install:
 - ulimit -n 1024
 script:
 - brew test-bot
+- brew install os161-toolchain
+- brew test os161-toolchain
 addons:
   artifacts: true
