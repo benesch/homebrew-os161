@@ -20,6 +20,7 @@ class Os161Gdb < Formula
   def install
     args = [
       "--prefix=#{prefix}",
+      "--with-gdb-datadir=#{share}/mips-harvard-os161-gdb",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--with-python=/usr",
