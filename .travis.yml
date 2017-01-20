@@ -17,12 +17,18 @@ before_install:
 - sudo chown -R "$USER" "$homebrew_repo"
 - git -C "$homebrew_repo" reset --hard origin/master
 - brew update || brew update
+- brew tap benesch/test-bot
 - tapdir="$(brew --repo "$TRAVIS_REPO_SLUG")"
 - mkdir -p "$tapdir"
 - rm -rf "$tapdir"
 - ln -s "$PWD" "$tapdir"
 - ulimit -n 1024
+- env | grep TRAVIS | tee /tmp/travis.env
+install: true
 script:
 - brew test-bot
+- find . -depth 1 -name '*.bottle.*.tar.gz' -exec brew install {} ';'
+- travis_wait brew install os161-toolchain
+- brew test os161-toolchain
 addons:
   artifacts: true

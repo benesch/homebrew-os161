@@ -14,8 +14,4 @@ class Sys161 < Formula
     system "make"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/sys161"
-  end
 end
