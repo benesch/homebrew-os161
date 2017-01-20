@@ -1,0 +1,23 @@
+language: ruby
+os: osx
+osx_image:
+  - xcode6.4
+  - xcode7.3
+  - xcode8.1
+rvm: system
+env:
+- HOMEBREW_DEVELOPER=1
+before_install:
+- homebrew_repo="$(brew --repo)"
+- sudo chown -R "$USER" "$homebrew_repo"
+- git -C "$homebrew_repo" reset --hard origin/master
+- brew update || brew update
+- tapdir="$(brew --repo "$TRAVIS_REPO_SLUG")"
+- mkdir -p "$tapdir"
+- rm -rf "$tapdir"
+- ln -s "$PWD" "$tapdir"
+- ulimit -n 1024
+script:
+- brew test-bot
+addons:
+  artifacts: true
