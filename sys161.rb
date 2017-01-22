@@ -1,3 +1,4 @@
+# Annoy Travis.
 class Sys161 < Formula
   homepage "http://os161.eecs.harvard.edu/#sys161"
   url "http://os161.eecs.harvard.edu/download/sys161-2.0.8.tar.gz"
