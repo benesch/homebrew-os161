@@ -10,10 +10,10 @@ class Os161Gcc < Formula
   end
 
   depends_on "os161-binutils"
-  depends_on "gmp"
-  depends_on "libmpc"
-  depends_on "mpfr"
-  depends_on "isl012"
+  depends_on "gmp@4"
+  depends_on "libmpc@0.8"
+  depends_on "mpfr@2"
+  depends_on "isl@0.12"
   depends_on "cloog"
 
   def install
@@ -21,11 +21,11 @@ class Os161Gcc < Formula
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version}",
       "--enable-languages=c",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl012"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
+      "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
+      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-cloog=#{Formula["cloog"].opt_prefix}",
       "--with-system-zlib",
       "--enable-checking=release",
