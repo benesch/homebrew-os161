@@ -32,3 +32,5 @@ script:
 - brew test os161-toolchain
 addons:
   artifacts: true
+notifications:
+  webhooks: https://homebrew-os161.herokuapp.com
