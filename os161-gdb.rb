@@ -1,16 +1,8 @@
 class Os161Gdb < Formula
   homepage "http://os161.eecs.harvard.edu/"
   url "http://os161.eecs.harvard.edu/download/gdb-7.8+os161-2.1.tar.gz"
-  version "7.8+os161-2.1"
+  version "7.8-os161-2.1"
   sha256 "1c16e2d83b3bfe52e8133e3c3a7d1f083b2d010fe1c107a78ede6439b1b1fe61"
-  revision 1
-
-  bottle do
-    revision 1
-    root_url "http://dl.bintray.com/benesch/homebrew-os161"
-    sha256 "0e1c7e4eceaeeb8cdc2a090196782846d8dae32ac519156db6c9d1d00323a31b" => :yosemite
-    sha256 "b722968533ce71d1a604574aefa79e32635b91c1059b3f88ca55dc9864f3de8a" => :el_capitan
-  end
 
   depends_on "pkg-config" => :build
   depends_on "readline"
