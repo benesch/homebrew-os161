@@ -3,7 +3,7 @@ class Os161Toolchain < Formula
   url "https://dl.bintray.com/benesch/bottles-os161/empty.tar"
   version "1.0.0"
   sha256 "5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
-  revision 1
+  revision 2
 
   depends_on "bmake"
   depends_on "os161-gcc"
