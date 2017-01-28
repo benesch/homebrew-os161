@@ -27,7 +27,7 @@ before_install:
 install: true
 script:
 - brew test-bot
-- find . -depth 1 -name '*.bottle.*.tar.gz' -exec brew install {} ';'
+- find . -depth 1 -name '*.bottle*.tar.gz' -exec brew install {} ';'
 - travis_wait brew install os161-toolchain
 - brew test os161-toolchain
 addons:
