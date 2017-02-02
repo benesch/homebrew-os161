@@ -27,7 +27,16 @@ before_install:
 install: true
 script:
 - brew test-bot
-- find . -depth 1 -name '*.bottle*.tar.gz' -exec brew install {} ';'
+# This trickery prefers any just-built bottles so that we actually test
+# this change. Otherwise, Homebrew just installs the bottles from the
+# last known-good build. Setting HOMEBREW_BUILD_FROM_SOURCE=1 also works
+# but is prohibitively slow.
+- >
+  for dep in $(brew deps -n os161-toolchain)
+  do
+    bottle="$dep"*.bottle*.tar.gz
+    [[ -f "$bottle" ]] && brew install "$bottle"
+  done
 - travis_wait brew install os161-toolchain
 - brew test os161-toolchain
 addons:
