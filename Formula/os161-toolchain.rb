@@ -17,7 +17,7 @@ class Os161Toolchain < Formula
 
   test do
     mkdir "src" do
-      system "curl http://os161.eecs.harvard.edu/download/os161-base-2.0.2.tar.gz | tar x --strip=1"
+      system "curl http://os161.eecs.harvard.edu/download/os161-base-2.0.3.tar.gz | tar x --strip=1"
       system "./configure", "--ostree=#{testpath}/root"
       system "bmake"
       system "bmake", "install"

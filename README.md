@@ -88,11 +88,11 @@ To set up stock OS/161 in a nutshell:
 
 ```bash
 # Obtain sources
-$ wget http://os161.eecs.harvard.edu/download/os161-base-2.0.2.tar.gz
-$ tar xf os161-base-2.0.2.tar.gz
+$ wget http://os161.eecs.harvard.edu/download/os161-base-2.0.3.tar.gz
+$ tar xf os161-base-2.0.3.tar.gz
 
 # Build userland
-$ cd os161-base-2.0.2
+$ cd os161-base-2.0.3
 $ ./configure
 $ bmake
 $ bmake install
