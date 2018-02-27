@@ -6,22 +6,25 @@ class Os161Gcc < Formula
   revision 3
 
   depends_on "os161-binutils"
-  depends_on "gmp@4"
-  depends_on "libmpc@0.8"
-  depends_on "mpfr@2"
-  depends_on "isl@0.12"
+  depends_on "gmp"
+  depends_on "libmpc"
+  depends_on "mpfr"
   depends_on "cloog"
+
+  resource "isl" do
+    url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
+    mirror "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
+    sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
+  end
 
   def install
     args = [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version}",
       "--enable-languages=c",
-      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-cloog=#{Formula["cloog"].opt_prefix}",
       "--with-system-zlib",
       "--enable-checking=release",
@@ -46,6 +49,8 @@ class Os161Gcc < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{MacOS.sdk_path}"
       end
+
+      resources.each { |r| r.stage(buildpath/r.name) }
 
       system "../configure", *args
       system "make"

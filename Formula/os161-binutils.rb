@@ -15,5 +15,9 @@ class Os161Binutils < Formula
                           "--target=mips-harvard-os161"
     system "make"
     system "make", "install"
+
+    # Remove conflicting items with binutils and stock GDB.
+    rm_rf share/"info"
+    rm_rf share/"locale"
   end
 end
